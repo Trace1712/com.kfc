@@ -387,6 +387,19 @@ under the License.
 			<artifactId>kafka-streams</artifactId>
 			<version>1.0.0</version>
 		</dependency>
+
+		<!-- XxlJob -->
+		<dependency>
+			<groupId>com.xuxueli</groupId>
+			<artifactId>xxl-job-core</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>2.1.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>

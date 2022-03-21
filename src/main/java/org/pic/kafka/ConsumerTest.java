@@ -14,7 +14,7 @@ public class ConsumerTest {
     public static void main(String[] args) throws Exception {
         //获取环境
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-
+        env.getConfig().setAutoWatermarkInterval(100L);
         //kafka配置
         String topic = "sample";
         Properties prop = new Properties();
@@ -34,6 +34,13 @@ public class ConsumerTest {
                 return null;
             }
         });
+        
+//        keyValue.timeWindowAll(Time.minutes(1)).apply(new AllWindowFunction<String, PixivPicture, TimeWindow>() {
+//            @Override
+//            public void apply(TimeWindow timeWindow, Iterable<String> iterable, Collector<PixivPicture> collector) throws Exception {
+//
+//            }
+//        }).addSink(new SinkToMySql());
         //打印
         text.print().setParallelism(1);
         //执行
