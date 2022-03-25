@@ -34,5 +34,16 @@ create table every_rank
 )
 comment '每日排行榜 | wucy | 2022-03-04';
 
-
+create table task_monitor
+(
+    ID         bigint auto_increment
+        primary key,
+    START_URL   varchar(1024)                          not null comment '开始地址',
+    START_TIME  timestamp    default CURRENT_TIMESTAMP not null comment '任务开始时间',
+    END_TIME    timestamp    default CURRENT_TIMESTAMP not null comment '任务结束时间',
+    PICTURE_NUM int          default 0                 not null comment '任务获取图片数',
+    CONDITION   int          default 0                 not null comment '执行情况 0-未执行 1-执行中 2-执行成功 3-执行失败',
+    EXCEPTION   varchar(1024)                          comment '报错信息'
+)
+    comment '任务监控表 | wucy | 2022-03-22';
 
